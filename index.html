@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Monthsary, my baobei</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=DM+Sans:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="cover" data-theme="night">
+
+<section class="cover" id="cover">
+  <img class="cover-photo" src="assets/us.jpg" alt="Us together">
+  <h1>Happy Monthsary,<br><em>my baobei !!</em></h1>
+  <p class="hint">Hint: the day it all began (MM/DD)</p>
+  <form id="lock" autocomplete="off">
+    <label for="code">Enter our passcode</label>
+    <input id="code" inputmode="numeric" maxlength="5" placeholder="__/__" aria-label="Passcode">
+    <button class="btn" type="submit">Unlock</button>
+  </form>
+  <div class="bloom" aria-hidden="true">🫶</div>
+</section>
+
+<div class="modal" id="wrong" hidden role="alertdialog" aria-labelledby="wrongT">
+  <div class="box">
+    <h3 id="wrongT">wrong password :((</h3>
+    <p>try again, langga ko.</p>
+    <button class="btn" id="wrongOk">Okay</button>
+  </div>
+</div>
+
+<script>
+const PASSCODE = '0609';   // 06/09 (change here if needed)
+const code = document.getElementById('code'), wrong = document.getElementById('wrong');
+
+// floating hearts in the background
+for (let i = 0; i < 14; i++) {
+  const s = document.createElement('span');
+  s.className = 'heart-float'; s.textContent = '♥';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.animationDuration = 9 + Math.random() * 10 + 's';
+  s.style.animationDelay = -Math.random() * 12 + 's';
+  s.style.fontSize = 0.8 + Math.random() * 1.4 + 'rem';
+  document.getElementById('cover').append(s);
+}
+
+// auto-add the slash: 0609 -> 06/09
+code.addEventListener('input', () => {
+  const d = code.value.replace(/\D/g, '').slice(0, 4);
+  code.value = d.length > 2 ? d.slice(0, 2) + '/' + d.slice(2) : d;
+});
+
+document.getElementById('lock').addEventListener('submit', e => {
+  e.preventDefault();
+  if (code.value.replace(/\D/g, '') === PASSCODE) {
+    sessionStorage.setItem('unlocked', '1');
+    localStorage.setItem('bgm_t', '0');
+    // start the song right now (this click lets the browser allow sound)
+    const a = new Audio('assets/song.mp3'); a.volume = .5; a.play().catch(() => {}); window._a = a;
+    document.getElementById('cover').classList.add('opening');
+    setTimeout(() => { localStorage.setItem('bgm_t', a.currentTime); location.href = 'together.html'; }, 1500);
+  } else {
+    wrong.hidden = false;
+    code.classList.remove('shake'); void code.offsetWidth; code.classList.add('shake');
+    code.value = '';
+  }
+});
+document.getElementById('wrongOk').addEventListener('click', () => { wrong.hidden = true; code.focus(); });
+</script>
+<script src="shared.js"></script>
+</body>
+</html>

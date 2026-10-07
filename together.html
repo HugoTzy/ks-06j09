@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>intertwined</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=DM+Sans:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="together" data-theme="night">
+<main>
+  <h1 class="page-title">two paths that intertwined unexpectedly</h1>
+  <p class="page-sub">magkaiba man ang oras pero never nawalan ng oras para sa isa't isa.</p>
+
+  <section class="clocks">
+    <div class="clock">
+      <span class="place">Quezon City 🇵🇭</span>
+      <span class="time" id="timePH">--:--:--</span>
+      <span class="date" id="datePH"></span>
+    </div>
+    <div class="together">
+      <p>together for</p>
+      <div class="count">
+        <div><b id="cDays">0</b><small>days</small></div>
+        <div><b id="cHours">0</b><small>hours</small></div>
+        <div><b id="cMins">0</b><small>minutes</small></div>
+      </div>
+      <p id="monthLine"></p>
+    </div>
+    <div class="clock">
+      <span class="place">Kellyville, Sydney 🇦🇺</span>
+      <span class="time" id="timeSY">--:--:--</span>
+      <span class="date" id="dateSY"></span>
+    </div>
+  </section>
+  <p class="theme-note" id="themeNote"></p>
+
+  <div class="divider">♥</div>
+
+  <section>
+    <h2 class="page-title">the distance between us</h2>
+    <p class="distance"><b id="km">0</b> km <span id="mi"></span> apart, for now.</p>
+    <div id="map"></div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="shared.js"></script>
+<script src="together.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>secret</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=DM+Sans:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="final" data-theme="night">
+<main>
+  <h1 class="page-title">a letter for my baobeiii</h1>
+  <p class="page-sub">tap the envelope.</p>
+
+  <div class="envelope" id="envelope" tabindex="0" role="button" aria-expanded="false">
+    <div class="flap"></div>
+    <span class="hint">Tap to open</span>
+    <div class="letter">
+      <p>haiiii langga kooo,</p>
+      <p>happy 4th monthsary ! grabe ang bilis ng oras from 1 month to 4 months. gusto ko lang malaman mo na day 0 palang na hinawakan mo kamay ko ay sayong sayo na ako. tinamaan agad ako sa cookies na natikaman ko then mas lalo akong nahulog nung nakita ko kung paano mo alagaan si lingling at sila tita. lagi mong tatandaan na minahal kita dahil ikaw yan, and that you're beautiful inside and out. napaka swerte ko kasi pinili mo ako out of 8 billion people sa mundo. let's keep on doing life together, forever. </p>
+      <p>araw araw kitang pipiliin, iintindihan at mamahalin.</p>
+      <p>forever your langga,<br>kaikai</p>
+    </div>
+  </div>
+
+  <div class="divider">♥</div>
+
+  <h2 class="page-title">one more thing for you </h2>
+  <p class="page-sub"></p>
+  <video controls playsinline preload="metadata" poster="assets/us.jpg" src="assets/greeting.mp4"></video>
+
+  <footer>4 months down, forever more to go !!</footer>
+</main>
+<script src="shared.js"></script>
+<script>
+const env = document.getElementById('envelope');
+const toggle = () => { env.classList.toggle('open'); env.setAttribute('aria-expanded', env.classList.contains('open')); };
+env.addEventListener('click', toggle);
+env.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+</script>
+</body>
+</html>

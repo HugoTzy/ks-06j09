@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>our scrapbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=DM+Sans:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="scrapbook" data-theme="night">
+<main>
+  <h1 class="page-title">our little scrapbook</h1>
+  <p class="page-sub">ldr edition. tap a photo to see it bigger.</p>
+
+  <section class="wall">
+    <figure class="polaroid" tabindex="0" role="button" data-cap="Our first video call"><div class="ph"><img src="assets/scrapbook/call1.jpg" alt="Our first video call" onerror="this.remove()"></div><figcaption>Our first video call<small>Video call</small></figcaption></figure>
+    <figure class="polaroid" tabindex="0" role="button" data-cap="Your sleepy face"><div class="ph"><img src="assets/scrapbook/call2.jpg" alt="Your sleepy face" onerror="this.remove()"></div><figcaption>Your sleepy face<small>Video call</small></figcaption></figure>
+    <figure class="polaroid" tabindex="0" role="button" data-cap="We could not stop laughing"><div class="ph"><img src="assets/scrapbook/call3.jpg" alt="We could not stop laughing" onerror="this.remove()"></div><figcaption>We could not stop laughing<small>Video call</small></figcaption></figure>
+    <figure class="polaroid" tabindex="0" role="button" data-cap="Funniest screenshot ever"><div class="ph"><img src="assets/scrapbook/call4.jpg" alt="Funniest screenshot ever" onerror="this.remove()"></div><figcaption>Funniest screenshot ever<small>Video call</small></figcaption></figure>
+    <figure class="polaroid" tabindex="0" role="button" data-cap="Finally together"><div class="ph"><img src="assets/scrapbook/visit1.jpg" alt="Finally together" onerror="this.remove()"></div><figcaption>Finally together<small>Visit</small></figcaption></figure>
+    <figure class="polaroid" tabindex="0" role="button" data-cap="Our favorite place"><div class="ph"><img src="assets/scrapbook/visit2.jpg" alt="Our favorite place" onerror="this.remove()"></div><figcaption>Our favorite place<small>Visit</small></figcaption></figure>
+    <figure class="polaroid" tabindex="0" role="button" data-cap="Hand in hand"><div class="ph"><img src="assets/scrapbook/visit3.jpg" alt="Hand in hand" onerror="this.remove()"></div><figcaption>Hand in hand<small>Visit</small></figcaption></figure>
+    <figure class="polaroid" tabindex="0" role="button" data-cap="Goodbye hugs"><div class="ph"><img src="assets/scrapbook/visit4.jpg" alt="Goodbye hugs" onerror="this.remove()"></div><figcaption>Goodbye hugs<small>Visit</small></figcaption></figure>
+  </section>
+</main>
+
+<div class="lightbox" id="lb" hidden role="dialog" aria-label="Photo viewer">
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+</div>
+
+<script src="shared.js"></script>
+<script>
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+function openPhoto(el) {
+  const img = el.querySelector('img');
+  if (!img) return;                       // no photo added yet
+  lbImg.src = img.src; lbCap.textContent = el.dataset.cap; lb.hidden = false;
+}
+document.querySelectorAll('.polaroid').forEach(f => {
+  f.addEventListener('click', () => openPhoto(f));
+  f.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPhoto(f); } });
+});
+lb.addEventListener('click', () => lb.hidden = true);
+addEventListener('keydown', e => { if (e.key === 'Escape') lb.hidden = true; });
+</script>
+</body>
+</html>
