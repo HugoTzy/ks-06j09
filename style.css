@@ -135,6 +135,6 @@ footer{text-align:center;color:var(--muted);margin-top:3rem}
   .letter{font-size:1.4rem}
 
   .clocks{grid-template-columns:1fr}.together{order:-1}
-  #map{height:340px}.nav .brand{display:none}
+  #map{height:340px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
