@@ -34,9 +34,9 @@ main{max-width:980px;margin:0 auto;padding:3rem 1.2rem 4rem}
 
 /* cover */
 .cover{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;text-align:center;padding:2rem;overflow:hidden;position:relative}
-.cover-photo{width:min(280px,66vw,calc(40svh * .75));aspect-ratio:3/4;object-fit:cover;object-position:center 20%;border-radius:140px 140px 20px 20px;border:2px solid var(--ink);box-shadow:0 0 0 8px var(--soft);animation:rise 1.2s .2s both}
+.cover-photo{width:min(280px,66vw);aspect-ratio:3/4;object-fit:cover;border-radius:140px 140px 20px 20px;border:2px solid var(--ink);outline:8px solid var(--soft);animation:rise 1.2s .2s both}
 .cover h1{font-size:clamp(2.2rem,8vw,4.2rem);animation:rise 1.2s .5s both}
-.cover .hint{color:var(--muted);animation:rise 1.2s .8s both}
+#lock .hint{color:var(--muted);font-size:.9rem;margin-top:-.5rem}
 #lock{display:flex;flex-direction:column;align-items:center;gap:.8rem;animation:rise 1.2s 1s both}
 #lock label{color:var(--muted)}
 #code{width:170px;text-align:center;font:500 1.8rem var(--font-d);letter-spacing:.2em;padding:.5rem;background:var(--soft);color:var(--ink);border:1px solid var(--line);border-radius:14px}
@@ -90,7 +90,7 @@ audio{width:100%}
 /* letter + video */
 .envelope{position:relative;max-width:640px;margin:0 auto;background:var(--ink);color:var(--bg);border-radius:14px;padding:1.4rem;cursor:pointer;min-height:200px;overflow:hidden}
 .flap{position:absolute;inset:0 0 auto 0;height:110px;background:#dcc89a;clip-path:polygon(0 0,100% 0,50% 100%);transition:transform .7s,opacity .7s;transform-origin:top}
-.hint{position:absolute;left:0;right:0;top:130px;text-align:center;font-style:italic}
+.envelope .hint{position:absolute;left:0;right:0;top:130px;text-align:center;font-style:italic}
 .letter{max-height:0;opacity:0;overflow:hidden;font:500 1.65rem/1.45 var(--font-h);transition:max-height 1.2s,opacity .8s .4s}
 .letter p{margin-bottom:.8rem}
 .envelope.open .flap{transform:rotateX(180deg);opacity:0}
