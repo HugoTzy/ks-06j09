@@ -1,6 +1,7 @@
 /* Shared by every page after the cover: lock guard, navbar, music, day/night theme */
 const PAGE = document.body.dataset.page;               // cover | together | voice | final
 const TZ_SY = 'Australia/Sydney';
+const BACK  = {voice:'together.html', scrapbook:'voice.html', song:'scrapbook.html', final:'song.html'};
 const NEXT  = {together:['voice.html','Next'], voice:['scrapbook.html','Next'], scrapbook:['song.html','Next'], song:['final.html','Next']};
 
 // ---- guard: must enter the passcode first ----
@@ -44,10 +45,11 @@ if (PAGE !== 'cover') {
     if (!bgm.muted) startMusic();
     paint();
   });
-  if (NEXT[PAGE]) {
+  if (NEXT[PAGE] || BACK[PAGE]) {
     const w = document.createElement('div');
     w.className = 'next-wrap';
-    w.innerHTML = `<a class="btn" href="${NEXT[PAGE][0]}">${NEXT[PAGE][1]}</a>`;
+    w.innerHTML = (BACK[PAGE] ? `<a class="btn" href="${BACK[PAGE]}">Back</a>` : '')
+                + (NEXT[PAGE] ? `<a class="btn" href="${NEXT[PAGE][0]}">${NEXT[PAGE][1]}</a>` : '');
     document.querySelector('main').append(w);
   }
   // fade out when moving between pages
