@@ -34,7 +34,7 @@ main{max-width:980px;margin:0 auto;padding:3rem 1.2rem 4rem}
 
 /* cover */
 .cover{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;text-align:center;padding:2rem;overflow:hidden;position:relative}
-.cover-photo{width:min(280px,66vw);aspect-ratio:3/4;object-fit:cover;border-radius:140px 140px 20px 20px;border:2px solid var(--ink);outline:8px solid var(--soft);animation:rise 1.2s .2s both}
+.cover-photo{width:min(280px,66vw,calc(40svh * .75));aspect-ratio:3/4;object-fit:cover;object-position:center 20%;border-radius:140px 140px 20px 20px;border:2px solid var(--ink);box-shadow:0 0 0 8px var(--soft);animation:rise 1.2s .2s both}
 .cover h1{font-size:clamp(2.2rem,8vw,4.2rem);animation:rise 1.2s .5s both}
 .cover .hint{color:var(--muted);animation:rise 1.2s .8s both}
 #lock{display:flex;flex-direction:column;align-items:center;gap:.8rem;animation:rise 1.2s 1s both}
