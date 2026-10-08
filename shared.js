@@ -1,7 +1,7 @@
 /* Shared by every page after the cover: lock guard, navbar, music, day/night theme */
 const PAGE = document.body.dataset.page;               // cover | together | voice | final
 const TZ_SY = 'Australia/Sydney';
-const ORDER = [['together.html','intertwined'],['voice.html','voice notes'],['scrapbook.html','scrapbook'],['song.html','my cover'],['final.html','secret']];
+const ORDER = [['together.html','intertwined'],['voice.html','voice notes'],['scrapbook.html','scrapbook'],['song.html','noise'],['final.html','secret']];
 const NEXT  = {together:['voice.html','Next: voice notes'], voice:['scrapbook.html','Next: our scrapbook'], scrapbook:['song.html','Next: a song for you'], song:['final.html','Next: the last part']};
 
 // ---- guard: must enter the passcode first ----
