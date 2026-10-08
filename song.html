@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>a song for you</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=DM+Sans:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="song" data-theme="night">
+<main>
+  <h1 class="page-title">a song for you</h1>
+  <p class="page-sub">hindi ako singer pero para sayo, kakanta ako.</p>
+
+  <div class="vinyl" id="vinyl" aria-hidden="true">
+    <div class="label" style="background-image:url('assets/us.jpg')"></div>
+  </div>
+
+  <div class="song-card">
+    <h2>[song title]</h2>
+    <p class="by">originally by [artist] · cover by kaikai</p>
+    <audio controls preload="none" id="coverAudio" src="assets/cover-song.mp3"></audio>
+    <p class="dedication">para sayo to, langga ko. pakinggan mo hanggang dulo ha.</p>
+  </div>
+
+  <!-- Prefer a video of you singing? Delete the <audio> line above and use this instead:
+  <video controls playsinline preload="metadata" poster="assets/us.jpg" src="assets/cover-song.mp4"></video>
+  -->
+</main>
+<script src="shared.js"></script>
+<script>
+// the record spins only while the song is playing
+const vinyl = document.getElementById('vinyl');
+const media = document.getElementById('coverAudio');
+['play'].forEach(ev => media.addEventListener(ev, () => vinyl.classList.add('playing')));
+['pause','ended'].forEach(ev => media.addEventListener(ev, () => vinyl.classList.remove('playing')));
+</script>
+</body>
+</html>
